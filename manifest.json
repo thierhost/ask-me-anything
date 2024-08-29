@@ -1,0 +1,28 @@
+{
+    "name": "AMA",
+    "version": "0.1",
+    "manifest_version": 3,
+    "description": "Ask me anything about words, expressions, sentences while browssing.",
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": ["sidePanel", "scripting", "activeTab", "notifications", "contextMenus", "storage"],
+    "side_panel": {
+      "default_path": "index.html"
+    },
+    "action": {
+      "default_title": "Ask Me Anything"
+    },
+    "icons": {
+    "16": "assets/16.png",
+    "48": "assets/48.png",
+    "128": "assets/128.png"
+    },
+    "content_scripts": [
+    {
+      "js": ["content_scripts/index.js"],
+      "matches": [ "https://*/*", "https://*/" ],
+      "run_at":"document_end"
+    }
+  ]
+  }
